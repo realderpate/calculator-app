@@ -20,7 +20,10 @@ public class calculate_app {
     {
         return (double)a/b;
     }
-
+    public static double percentage(double a, double b)
+    {
+        return (b * a) / 100;
+    }
     public static void main(String[] args) throws Exception
     {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -33,6 +36,7 @@ public class calculate_app {
         System.out.println("2 - minus");
         System.out.println("3 - multiply");
         System.out.println("4 - division");
+        System.out.println("5 - percentage, where (a, b) b is percent; a is digit");
         int operationType = Integer.parseInt(reader.readLine());
         if(operationType == 1)
             System.out.println(plus(a, b));
@@ -40,11 +44,14 @@ public class calculate_app {
             System.out.println(minus(a, b));
         else if(operationType == 3)
             System.out.println(multiply(a, b));
-        else if(operationType == 4)
+        else if(operationType == 4) {
             if (b != 0)
                 System.out.println(division(a, b));
             else
                 System.out.println("Division to 0 is invalid operation");
+        }
+        else if (operationType == 5)
+            System.out.println(b + " percent of " + a + " will be " + percentage(a, b));
         else
             System.out.println("Pleasw type a valid number of operation");
     }
